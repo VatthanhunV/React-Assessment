@@ -30,8 +30,10 @@ const Home = () => {
         <div>
           <h1>Generation Thailand</h1>
           <h1>React - Assessment</h1>
-          <button><a href={'/user'}>User</a></button>
-          <button><a href={'/admin'}>Admin</a></button>
+          <div className="middle">
+            <button><a href={'/user'}>User</a></button>
+            <button><a href={'/admin'}>Admin</a></button>
+          </div>
         </div>
     </Layout>
   )
