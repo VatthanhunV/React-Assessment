@@ -46,8 +46,6 @@ const TableDisplay = () => {
     getData()
   }, [reload])
 
-
-  
   return (
     <div className="container">
       <table>
@@ -99,7 +97,6 @@ const FormCreate = ({submitHandler}) => {
         <input type="text" placeholder="Last Name" value={lastname} onChange={(e) => setLastname(e.target.value)} />
         <input type="text" placeholder="Position" value={position} onChange={(e) => setPosition(e.target.value)} />
         <button onClick={() => submitHandler(name, lastname, position)} >Save</button>
-        {console.log(name, lastname, position)}
       </form>
     </div>
   );
