@@ -6,12 +6,15 @@ import axios from 'axios'
 
 const UserPage = () => {
     return (
-        <Layout>
+        <Layout><br />
             <h1>Generation Thailand</h1>
             <h1>Home - User Sector</h1>
+            <div className="middle">
             <button><a href={"/user"}>User</a></button>
-            <button><a href={"/admin"}>Admin</a></button>
+            <button><a href={"/admin"}>Admin</a></button></div><br /><br /><br /><br /><br /><br /><br />
+            <div className="middle">
             <TableDisplay />
+            </div>
         </Layout>
     )
 }
@@ -31,13 +34,15 @@ const TableDisplay = () => {
     getData()
   }, [reload])
     return (
-      <div className="container">
+      <div>
         <table>
+          <thead>
           <tr>
             <th>Name</th>
             <th>Lastname</th>
             <th>Position</th>
           </tr>
+          </thead>
           <TableBody data={members} />
         </table>
       </div>

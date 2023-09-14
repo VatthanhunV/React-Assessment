@@ -26,8 +26,8 @@ export const mockEmployees = [
 
 const Home = () => {
   return (
-    <Layout>
-        <div className='container'>
+    <Layout><br />
+        <div>
           <h1>Generation Thailand</h1>
           <h1>React - Assessment</h1>
           <button><a href={'/user'}>User</a></button>

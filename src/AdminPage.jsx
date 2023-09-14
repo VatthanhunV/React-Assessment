@@ -14,20 +14,24 @@ const AdminPage = () => {
       position: position
     })
     if (response.status === 200) {
-      console.log(response.data)
       setReload(!reload)
     }
   }
 
   return (
-    <Layout>
+    <Layout >
+      <br />
       <h1>Generation Thailand</h1>
       <h1>Home - Admin Sector</h1>
-      <button><a href={"/user"}>User</a></button>
-      <button><a href={"/admin"}>Admin</a></button>
+      <div className="middle">
+      <button ><a href={"/user"}>User</a></button>
+      <button><a href={"/admin"}>Admin</a></button></div>
       <h2>Create User Here</h2>
-      <FormCreate submitHandler={createData}/>
+      <div className="middle">
+      <FormCreate submitHandler={createData} /></div><br />
+      <div className="middle">
       <TableDisplay />
+      </div>
     </Layout>
   );
 };
@@ -39,6 +43,7 @@ const TableDisplay = () => {
   useEffect(() => {
     const getData = async () => {
       const response = await axios.get(`https://jsd5-mock-backend.onrender.com/members`)
+      console.log(response.data)
       if (response.status === 200 && response.data) {
         setMembers([...response.data])
       }
@@ -47,14 +52,16 @@ const TableDisplay = () => {
   }, [reload])
 
   return (
-    <div className="container">
+    <div>
       <table>
+        <thead >
         <tr>
           <th>Name</th>
           <th>Lastname</th>
           <th>Position</th>
           <th>Action</th>
         </tr>
+        </thead>
         <TableBody data={members} />
       </table>
     </div>
@@ -63,8 +70,8 @@ const TableDisplay = () => {
 const TableBody = ({data}) => {
   const deleteUser = async (id) => {
     const response = await axios.delete(`https://jsd5-mock-backend.onrender.com/member/${id}`,{id: id})
-    console.log(id)
     if (response.status === 200) {
+      console.log(response.data)
       setReload(!reload)
     }
   }
@@ -90,7 +97,7 @@ const FormCreate = ({submitHandler}) => {
   const [lastname, setLastname] = useState('')
   const [position, setPosition] = useState('')
   return (
-    <div className="container">
+    <div>
 
       <form>
         <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
